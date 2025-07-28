@@ -104,7 +104,7 @@
 
 .amount-cell {
   min-width: 100px;
-  text-align: right;
+  text-align: left;
 }
 
 .amount-text {
