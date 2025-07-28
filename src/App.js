@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import ExpenseList from "./components/ExpenseList";
 import DataGenerator from "./components/DataGenerator";
+import ExpenseForm from "./components/ExpenseForm";
+import ExpenseList from "./components/ExpenseList";
 
 function App() {
   const [expenses, setExpenses] = useState([]);
@@ -50,12 +51,13 @@ function App() {
         <div className="container">
           <div className="app-grid">
             <div className="form-section">
+              <ExpenseForm onAddExpense={addExpense} />
             </div>
             <div className="stats-section"></div>
           </div>
           {expenses.length === 0 && (
-             <DataGenerator onDataGenerated={handleDataGenerated} />
-           )}
+            <DataGenerator onDataGenerated={handleDataGenerated} />
+          )}
           <div className="list-section">
             <ExpenseList expenses={expenses} />
           </div>
