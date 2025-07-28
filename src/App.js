@@ -35,7 +35,6 @@ function App() {
       ...expense,
       date: expense.date || new Date().toISOString().split("T")[0],
     };
-    console.log([newExpense, ...expenses]);
     setExpenses([newExpense, ...expenses]);
   };
   // Expense state updater
