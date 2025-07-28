@@ -1,9 +1,11 @@
 .app {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
 .container {
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -81,7 +83,7 @@
     padding: 0 15px;
   }
   
-  .form-section, 
+  .form-section,
   .list-section {
     padding: 1.5rem;
   }
@@ -104,19 +106,4 @@
   .list-section {
     padding: 1rem;
   }
-}
-
-.btn-generate {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  box-shadow: 0 2px 4px rgba(102, 126, 234, 0.25);
 }
