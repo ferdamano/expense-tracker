@@ -3,9 +3,11 @@ import "./App.css";
 import DataGenerator from "./components/DataGenerator";
 import ExpenseForm from "./components/ExpenseForm";
 import ExpenseList from "./components/ExpenseList";
+import SearchFilter from "./components/SearchFilter";
 
 function App() {
   const [expenses, setExpenses] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   // use LocalStorage to store expenses
   // 1 time only
@@ -42,6 +44,10 @@ function App() {
     setExpenses(newExpenses);
   };
 
+  const filteredExpenses = expenses.filter((expense) =>
+    expense.description.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="app">
       <header className="app-header">
@@ -63,7 +69,10 @@ function App() {
             <DataGenerator onDataGenerated={handleDataGenerated} />
           )}
           <div className="list-section">
-            <ExpenseList expenses={expenses} />
+            <SearchFilter
+              onSearchChange={setSearchTerm}
+              searchTerm={searchTerm} />
+            <ExpenseList expenses={filteredExpenses} />
           </div>
         </div>
       </main>
