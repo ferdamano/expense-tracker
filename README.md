@@ -83,15 +83,6 @@ npm run build
 - Responsive design for all screen sizes
 - Modern glassmorphism design elements
 
-## 🎨 Design Features
-
-- **Glassmorphism**: Modern glass-like UI elements with backdrop blur
-- **Gradient Backgrounds**: Beautiful gradient backgrounds and buttons
-- **Typography**: Clean, readable fonts with proper hierarchy
-- **Color Scheme**: Professional color palette with good contrast
-- **Animations**: Subtle animations for better user experience
-- **Mobile-First**: Responsive design that works on all devices
-
 ## 📊 Data Structure
 
 Expenses are stored in localStorage with the following structure:
