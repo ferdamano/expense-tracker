@@ -8,10 +8,12 @@ A responsive expense tracking application built with React that allows employees
 - **Expense History**: View all past expenses in a clean, sortable table
 - **Search & Filter**: Search expenses by description with real-time filtering
 - **Total Statistics**: View total expenses and expense count
-- **Weekly Breakdown**: Toggle to see expenses broken down by week for the entire year
+- **Weekly Breakdown**: Toggle to see expenses broken down by week for the entire year to date
 - **Responsive Design**: Mobile-friendly interface that works on all devices
 - **Data Persistence**: Uses localStorage to save expenses locally
 - **Modern UI**: Beautiful, clean design with smooth animations and transitions
+- **Data Generator**: It was a challenge testing the other features without bulk data creating a need for this
+
 
 ## 🚀 Getting Started
 
