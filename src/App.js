@@ -70,6 +70,7 @@ function App() {
           )}
           <div className="list-section">
             <SearchFilter
+              expenseCount={filteredExpenses.length}
               onSearchChange={setSearchTerm}
               searchTerm={searchTerm} />
             <ExpenseList expenses={filteredExpenses} />
