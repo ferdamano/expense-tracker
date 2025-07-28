@@ -2,6 +2,22 @@ import React from "react";
 import "./ExpenseList.css";
 
 const ExpenseList = ({ expenses }) => {
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', {
+      weekday: 'short',
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric'
+    });
+  };
+  const formatAmount = (amount) => {
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD'
+    }).format(amount);
+  };
+  console.log(expenses);
   return (
     <div className="expense-list">
       <h2>Expense List</h2>
@@ -31,6 +47,7 @@ const ExpenseList = ({ expenses }) => {
                     {formatAmount(expense.amount)}
                   </span>
                 </td>
+                <td></td>
               </tr>
             ))}
           </tbody>
