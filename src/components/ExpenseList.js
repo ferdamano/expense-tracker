@@ -17,7 +17,6 @@ const ExpenseList = ({ expenses, onDeleteExpense }) => {
       currency: 'USD'
     }).format(amount);
   };
-  console.log(expenses);
   return (
     <div className="expense-list">
       <h2>Expense List</h2>

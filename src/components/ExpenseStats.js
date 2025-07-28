@@ -22,7 +22,6 @@ const ExpenseStats = ({ totalExpenses, showWeeklyStats, setShowWeeklyStats, expe
         const expenseDate = new Date(expense.date);
         return expenseDate >= weekStart && expenseDate <= weekEnd;
       });
-        console.log(weekExpenses);
       
       const weekTotal = weekExpenses.reduce((sum, expense) => sum + parseFloat(expense.amount), 0);
       
