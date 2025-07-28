@@ -7,6 +7,7 @@ const ExpenseForm = ({ onAddExpense }) => {
   const [date, setDate] = useState("");
 
   const handleSubmit = (e) => {
+    e.preventDefault();
     onAddExpense({
       description: description.trim(),
       amount: parseFloat(amount).toFixed(2),

@@ -31,7 +31,12 @@ function App() {
 
   // Add expense
   const addExpense = (expense) => {
-    const newExpenses = [...expenses, expense];
+    const newExpense = {
+      ...expense,
+      date: expense.date || new Date().toISOString().split("T")[0],
+    };
+    console.log([newExpense, ...expenses]);
+    setExpenses([newExpense, ...expenses]);
   };
   // Expense state updater
   const handleDataGenerated = (newExpenses) => {
