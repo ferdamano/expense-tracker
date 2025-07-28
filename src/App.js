@@ -3,11 +3,13 @@ import "./App.css";
 import DataGenerator from "./components/DataGenerator";
 import ExpenseForm from "./components/ExpenseForm";
 import ExpenseList from "./components/ExpenseList";
+import ExpenseStats from "./components/ExpenseStats";
 import SearchFilter from "./components/SearchFilter";
 
 function App() {
   const [expenses, setExpenses] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [showWeeklyStats, setShowWeeklyStats] = useState(false);
 
   // use LocalStorage to store expenses
   // 1 time only
@@ -39,6 +41,12 @@ function App() {
     };
     setExpenses([newExpense, ...expenses]);
   };
+
+  // Delete expense
+  const deleteExpense = (id) => {
+    setExpenses(expenses.filter((expense) => expense.id !== id));
+  };
+
   // Expense state updater
   const handleDataGenerated = (newExpenses) => {
     setExpenses(newExpenses);
@@ -46,6 +54,10 @@ function App() {
 
   const filteredExpenses = expenses.filter((expense) =>
     expense.description.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+  const totalExpenses = expenses.reduce(
+    (sum, expense) => sum + parseFloat(expense.amount),
+    0
   );
 
   return (
@@ -63,7 +75,14 @@ function App() {
             <div className="form-section">
               <ExpenseForm onAddExpense={addExpense} />
             </div>
-            <div className="stats-section"></div>
+            <div className="stats-section">
+              <ExpenseStats
+                totalExpenses={totalExpenses}
+                showWeeklyStats={showWeeklyStats}
+                setShowWeeklyStats={setShowWeeklyStats}
+                expenses={expenses}
+              />
+            </div>
           </div>
           {expenses.length === 0 && (
             <DataGenerator onDataGenerated={handleDataGenerated} />
@@ -73,7 +92,10 @@ function App() {
               expenseCount={filteredExpenses.length}
               onSearchChange={setSearchTerm}
               searchTerm={searchTerm} />
-            <ExpenseList expenses={filteredExpenses} />
+            <ExpenseList
+              expenses={filteredExpenses}
+              onDeleteExpense={deleteExpense}
+            />
           </div>
         </div>
       </main>

@@ -1,7 +1,7 @@
 import React from "react";
 import "./ExpenseList.css";
 
-const ExpenseList = ({ expenses }) => {
+const ExpenseList = ({ expenses, onDeleteExpense }) => {
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleDateString('en-US', {
@@ -47,7 +47,17 @@ const ExpenseList = ({ expenses }) => {
                     {formatAmount(expense.amount)}
                   </span>
                 </td>
-                <td></td>
+                <td className="actions-cell">
+                  <button
+                    className="delete-btn"
+                    onClick={() => onDeleteExpense(expense.id)}
+                    title="Delete expense"
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M10 11v6M14 11v6"/>
+                    </svg>
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>

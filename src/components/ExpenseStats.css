@@ -1,0 +1,252 @@
+.expense-stats {
+  width: 100%;
+}
+
+.expense-stats h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.total-section {
+  margin-bottom: 1.5rem;
+}
+
+.total-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  color: white;
+  box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
+}
+
+.total-icon {
+  font-size: 2rem;
+  opacity: 0.9;
+}
+
+.total-content h3 {
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.9;
+  margin-bottom: 0.25rem;
+}
+
+.total-amount {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.total-count {
+  font-size: 0.875rem;
+  opacity: 0.8;
+}
+
+.weekly-toggle {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  color: #4a5568;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+}
+
+.toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: #667eea;
+  color: #667eea;
+  transform: translateY(-1px);
+}
+
+.toggle-btn.active {
+  background: #667eea;
+  border-color: #667eea;
+  color: white;
+}
+
+.toggle-icon {
+  transition: transform 0.2s ease;
+}
+
+.toggle-icon.rotated {
+  transform: rotate(180deg);
+}
+
+.weekly-stats {
+  animation: slideDown 0.3s ease;
+}
+
+.weekly-stats h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.weekly-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.weekly-grid::-webkit-scrollbar {
+  width: 6px;
+}
+
+.weekly-grid::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+}
+
+.weekly-grid::-webkit-scrollbar-thumb {
+  background: rgba(102, 126, 234, 0.3);
+  border-radius: 3px;
+}
+
+.weekly-grid::-webkit-scrollbar-thumb:hover {
+  background: rgba(102, 126, 234, 0.5);
+}
+
+.week-card {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  padding: 1rem;
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+}
+
+.week-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.week-card.has-expenses {
+  border-left: 4px solid #48bb78;
+}
+
+.week-card.no-expenses {
+  opacity: 0.6;
+  border-left: 4px solid #e2e8f0;
+}
+
+.week-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.week-number {
+  font-weight: 600;
+  color: #2d3748;
+  font-size: 0.875rem;
+}
+
+.week-dates {
+  font-size: 0.75rem;
+  color: #718096;
+}
+
+.week-amount {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 0.25rem;
+}
+
+.week-count {
+  font-size: 0.75rem;
+  color: #718096;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .expense-stats h2 {
+    font-size: 1.25rem;
+  }
+  
+  .total-card {
+    padding: 1.25rem;
+  }
+  
+  .total-icon {
+    font-size: 1.75rem;
+  }
+  
+  .total-amount {
+    font-size: 1.5rem;
+  }
+  
+  .weekly-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 0.75rem;
+  }
+  
+  .week-card {
+    padding: 0.875rem;
+  }
+  
+  .week-amount {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .total-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .total-icon {
+    font-size: 1.5rem;
+  }
+  
+  .total-amount {
+    font-size: 1.25rem;
+  }
+  
+  .weekly-grid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .week-card {
+    padding: 0.75rem;
+  }
+}
